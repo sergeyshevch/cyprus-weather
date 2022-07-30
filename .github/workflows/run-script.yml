@@ -21,3 +21,9 @@ jobs:
           cache: true
       - run: go version
       - run: go run main.go
+        env:
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+          BREEZOMETER_TOKEN: ${{ secrets.BREEZOMETER_TOKEN }}
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
