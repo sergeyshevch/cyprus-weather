@@ -6,26 +6,28 @@ import (
 	"github.com/dghubble/oauth1"
 	twauth "github.com/dghubble/oauth1/twitter"
 	"go.uber.org/zap"
+
+	"github.com/sergeyshevch/cyprus-weather/config"
 )
 
 const outOfBand = "oob"
 
 func TwitterLogin(log *zap.Logger) (string, string, error) {
-	config := oauth1.Config{
-		ConsumerKey:    "2EIYYJmAnR1IuNlC5vzZI0OUg",
-		ConsumerSecret: "5SaxOZ8fXNsef5FclWRiIJmthISnoX4l2twXuLuTzEwDujDTKI",
+	oauthConfig := oauth1.Config{
+		ConsumerKey:    config.ConsumerKey(),
+		ConsumerSecret: config.ConsumerSecret(),
 		CallbackURL:    outOfBand,
 		Endpoint:       twauth.AuthorizeEndpoint,
 	}
 
-	requestToken, err := login(log, config)
+	requestToken, err := login(log, oauthConfig)
 	if err != nil {
 		log.Error("Request Token Phase", zap.Error(err))
 
 		return "", "", err
 	}
 
-	accessToken, err := receivePIN(log, config, requestToken)
+	accessToken, err := receivePIN(log, oauthConfig, requestToken)
 	if err != nil {
 		log.Error("Access Token Phase ", zap.Error(err))
 
