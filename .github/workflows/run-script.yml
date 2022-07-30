@@ -9,6 +9,7 @@ on:
 jobs:
   sent_tweets:
     name: Send tweets
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
