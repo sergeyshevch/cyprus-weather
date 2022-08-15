@@ -7,7 +7,7 @@ require (
 	github.com/dghubble/oauth1 v0.7.1
 	github.com/samber/lo v1.27.0
 	github.com/spf13/viper v1.12.0
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.22.0
 )
 
 require (
