@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/dghubble/go-twitter v0.0.0-20220716041154-837915ec2f79
 	github.com/dghubble/oauth1 v0.7.1
-	github.com/samber/lo v1.27.0
+	github.com/samber/lo v1.35.0
 	github.com/spf13/viper v1.12.0
 	go.uber.org/zap v1.21.0
 )
